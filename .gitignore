@@ -1,0 +1,12 @@
+# Python 运行痕迹
+__pycache__/
+*.py[cod]
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 审计输出（不属于 skill 本体）
+agent-code-atlas-output/
+*.log

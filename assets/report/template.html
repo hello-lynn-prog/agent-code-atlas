@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__ATLAS_TITLE__</title>
+<style>
+/*__ATLAS_CSS__*/
+</style>
+</head>
+<body>
+<div id="app-root" class="app-root">
+  <header id="topbar" class="topbar">
+    <button id="btn-sidebar" class="btn btn-icon" type="button" title="项目树" aria-label="打开项目树">树</button>
+    <div class="topbar-brand">
+      <span class="brand-mark">Atlas</span>
+      <div class="brand-meta">
+        <span id="proj-title" class="proj-title"></span>
+        <span id="proj-meta" class="proj-meta"></span>
+      </div>
+    </div>
+    <div class="topbar-search">
+      <input id="global-search" type="search" placeholder="搜索节点 / 文件 / 符号(/)" aria-label="全局搜索" autocomplete="off">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+    <div class="topbar-tools">
+      <label class="filter-label">置信度
+        <select id="filter-confidence" aria-label="按置信度过滤">
+          <option value="">全部</option>
+          <option value="high">high</option>
+          <option value="medium">medium</option>
+          <option value="low">low</option>
+        </select>
+      </label>
+      <label class="filter-label">状态
+        <select id="filter-status" aria-label="按实现状态过滤">
+          <option value="">全部</option>
+          <option value="implemented">implemented</option>
+          <option value="delegated">delegated</option>
+          <option value="partial">partial</option>
+          <option value="unknown">unknown</option>
+          <option value="absent">absent</option>
+        </select>
+      </label>
+      <span id="project-switcher"></span>
+      <button id="btn-theme" class="btn" type="button" title="切换深浅主题">主题</button>
+      <details id="about" class="about">
+        <summary class="btn" title="报告说明">说明</summary>
+        <div class="about-panel">
+          <p><b>Agent Code Atlas</b>:交互式源码架构浏览器。点击架构节点、文件、符号可在右侧查看证据与行号;左侧树可按物理/逻辑组织浏览。</p>
+          <p>实现状态:<span class="badge st-implemented">implemented</span> 本仓库实现 ·
+             <span class="badge st-delegated">delegated</span> 委托给宿主/依赖 ·
+             <span class="badge st-partial">partial</span> 部分实现 ·
+             <span class="badge st-unknown">unknown</span> 证据不足 ·
+             <span class="badge st-absent">absent</span> 设计上不提供</p>
+          <p>证据等级:runtime(实际运行) &gt; test(测试) &gt; code(实现源码) &gt; config(配置/依赖) &gt; docs(文档声称) &gt; inference(推断,附依据)。</p>
+          <p>本报告为离线单文件,所有数据已内嵌;链接均为页面内深链接,可用浏览器前进/后退。</p>
+        </div>
+      </details>
+    </div>
+  </header>
+  <div id="layout" class="layout">
+    <aside id="sidebar" class="sidebar" aria-label="项目树">
+      <div class="sidebar-tabs">
+        <button id="tree-tab-physical" class="btn btn-tab active" type="button">项目树</button>
+        <button id="tree-tab-logical" class="btn btn-tab" type="button">逻辑树</button>
+      </div>
+      <input id="tree-search" type="search" placeholder="过滤文件…" aria-label="过滤文件" autocomplete="off">
+      <div class="sidebar-toggles">
+        <label><input type="checkbox" id="tree-core-only"> 仅核心</label>
+        <label><input type="checkbox" id="tree-hide-tests"> 隐藏测试</label>
+        <label><input type="checkbox" id="tree-hide-docs"> 隐藏文档</label>
+        <label><input type="checkbox" id="tree-hide-generated"> 隐藏生成</label>
+      </div>
+      <div id="tree-container" class="tree-container"></div>
+    </aside>
+    <main id="main" class="main">
+      <nav id="tabs" class="tabs" role="tablist" aria-label="视图切换"></nav>
+      <section id="view-overview" class="view" aria-label="Overview"></section>
+      <section id="view-architecture" class="view" hidden aria-label="Architecture"></section>
+      <section id="view-flows" class="view" hidden aria-label="Runtime Flows"></section>
+      <section id="view-state" class="view" hidden aria-label="State and Data"></section>
+      <section id="view-source" class="view" hidden aria-label="Source Index"></section>
+      <section id="view-extensions" class="view" hidden aria-label="Extensions"></section>
+      <section id="view-dev" class="view" hidden aria-label="Development Guide"></section>
+      <section id="view-comparison" class="view" hidden aria-label="Comparison"></section>
+      <section id="view-unknowns" class="view" hidden aria-label="Unknowns"></section>
+    </main>
+    <aside id="details" class="details" aria-label="详情面板">
+      <div class="details-head">
+        <span>详情</span>
+        <button id="btn-close-details" class="btn btn-xs" type="button" title="清除选择">×</button>
+      </div>
+      <div id="details-body" class="details-body"></div>
+    </aside>
+  </div>
+  <footer id="statusbar" class="statusbar">
+    <span id="status-filters"></span>
+    <span id="status-counts"></span>
+    <span id="status-version"></span>
+  </footer>
+  <div id="toast" class="toast" hidden></div>
+</div>
+<script type="application/json" id="audit-data">__ATLAS_DATA__</script>
+<script>
+/*__ATLAS_APP__*/
+</script>
+</body>
+</html>

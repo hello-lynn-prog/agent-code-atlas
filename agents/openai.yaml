@@ -1,0 +1,9 @@
+display_name: Agent Code Atlas
+short_description: Map agent-framework source code to a canonical architecture atlas with line-level evidence and an offline interactive HTML report.
+default_prompt: >-
+  Use the agent-code-atlas skill to audit the agent repository at <REPO_PATH>
+  and write the report to <OUTPUT_DIR>. Focus on the agent loop, tool
+  execution, state management, and extension points. Do not run any code from
+  the target repository (no runtime verification). Produce audit.json and
+  report.html, then summarize the project kind, the core loop / model layer /
+  tool layer / runtime locations, and any important unknowns.
