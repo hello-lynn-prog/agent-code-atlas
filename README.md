@@ -1,5 +1,7 @@
 # agent-code-atlas
 
+![agent-code-atlas 审计流水线](docs/audit-pipeline.svg)
+
 > 把任意 Agent SDK / Agent Harness / CLI Agent 的源码，审计成一张可交互的架构图谱。
 
 给它一个本地 agent 项目的源码目录，它回答：这个项目是什么类型、每项架构职责（agent loop、tool registry、model provider、tool executor、context/state、permission、sandbox、事件流、memory、checkpoint、subagent、扩展点……）由哪些文件 / 类 / 函数承担、证据在哪一行、如何二次开发。
@@ -70,6 +72,7 @@ agent-code-atlas/
 │   ├── validate_audit.py         # 数据模型校验
 │   ├── render_report.py          # 渲染自包含单文件 HTML
 │   └── smoke_test.py             # 端到端自检
+├── docs/                         # README 配图
 └── assets/                       # 报告静态资源
 ```
 

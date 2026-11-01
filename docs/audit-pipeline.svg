@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540" font-family="-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="540" rx="16" fill="#f6f8fa"/>
+
+  <text x="600" y="50" text-anchor="middle" font-size="28" font-weight="700" fill="#0f172a">agent-code-atlas：把源码审计成可交互的架构图谱</text>
+  <text x="600" y="78" text-anchor="middle" font-size="14" fill="#57606a">输入一个本地源码目录，输出机器可读的数据模型 + 双击即开的离线 HTML 报告</text>
+
+  <!-- 流水线：输入 + 4 阶段 -->
+  <rect x="40" y="120" width="170" height="120" rx="10" fill="#0d1117"/>
+  <text x="125" y="172" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">本地源码目录</text>
+  <text x="125" y="198" text-anchor="middle" font-size="12" fill="#8b949e">Agent SDK / harness / CLI</text>
+
+  <line x1="212" y1="180" x2="246" y2="180" stroke="#57606a" stroke-width="1.6" marker-end="url(#ar)"/>
+
+  <g>
+    <rect x="250" y="120" width="180" height="120" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+    <text x="270" y="150" font-size="11" fill="#8b949e" font-family="Consolas,Menlo,monospace">STEP 1</text>
+    <text x="270" y="182" font-size="15.5" font-weight="700" fill="#1f2328">仓库画像</text>
+    <text x="270" y="210" font-size="12" fill="#57606a">inventory_repo.py</text>
+  </g>
+  <line x1="432" y1="180" x2="456" y2="180" stroke="#57606a" stroke-width="1.6" marker-end="url(#ar)"/>
+
+  <g>
+    <rect x="460" y="120" width="180" height="120" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+    <text x="480" y="150" font-size="11" fill="#8b949e" font-family="Consolas,Menlo,monospace">STEP 2</text>
+    <text x="480" y="182" font-size="15.5" font-weight="700" fill="#1f2328">本体映射</text>
+    <text x="480" y="210" font-size="12" fill="#57606a">55 个统一架构概念</text>
+  </g>
+  <line x1="642" y1="180" x2="666" y2="180" stroke="#57606a" stroke-width="1.6" marker-end="url(#ar)"/>
+
+  <g>
+    <rect x="670" y="120" width="180" height="120" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+    <text x="690" y="150" font-size="11" fill="#8b949e" font-family="Consolas,Menlo,monospace">STEP 3</text>
+    <text x="690" y="182" font-size="15.5" font-weight="700" fill="#1f2328">双向追踪</text>
+    <text x="690" y="210" font-size="12" fill="#57606a">证据定位 file:line</text>
+  </g>
+  <line x1="852" y1="180" x2="876" y2="180" stroke="#57606a" stroke-width="1.6" marker-end="url(#ar)"/>
+
+  <g>
+    <rect x="880" y="120" width="180" height="120" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+    <text x="900" y="150" font-size="11" fill="#8b949e" font-family="Consolas,Menlo,monospace">STEP 4</text>
+    <text x="900" y="182" font-size="15.5" font-weight="700" fill="#1f2328">校验渲染</text>
+    <text x="900" y="210" font-size="12" fill="#57606a">validator + renderer</text>
+  </g>
+
+  <!-- 分流到两个输出 -->
+  <line x1="970" y1="240" x2="970" y2="288" stroke="#57606a" stroke-width="1.6"/>
+  <line x1="440" y1="288" x2="970" y2="288" stroke="#57606a" stroke-width="1.6"/>
+  <line x1="440" y1="288" x2="440" y2="326" stroke="#57606a" stroke-width="1.6" marker-end="url(#ar)"/>
+  <line x1="855" y1="288" x2="855" y2="326" stroke="#57606a" stroke-width="1.6" marker-end="url(#ar)"/>
+
+  <!-- 输出 A：audit.json -->
+  <rect x="250" y="330" width="380" height="110" rx="10" fill="#0d1117"/>
+  <text x="280" y="368" font-size="17" font-weight="700" fill="#7ee787" font-family="Consolas,Menlo,monospace">audit.json</text>
+  <text x="280" y="396" font-size="12.5" fill="#c9d1d9">机器可读架构模型：每个架构职责定位到</text>
+  <text x="280" y="416" font-size="12.5" fill="#c9d1d9">文件 / 符号 / 行号，附证据与置信度</text>
+
+  <!-- 输出 B：report.html -->
+  <rect x="665" y="330" width="385" height="110" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+  <text x="695" y="368" font-size="17" font-weight="700" fill="#cf222e" font-family="Consolas,Menlo,monospace">report.html</text>
+  <text x="695" y="396" font-size="12.5" fill="#57606a">单文件离线交互图谱：分层图 / 执行链路 /</text>
+  <text x="695" y="416" font-size="12.5" fill="#57606a">状态模型 / 扩展点 / 二次开发指南</text>
+
+  <!-- 底部特性 chips -->
+  <g font-size="13" fill="#1f5bb5">
+    <rect x="40" y="472" width="200" height="44" rx="22" fill="#e7f2ff" stroke="#9cc3f5"/>
+    <text x="140" y="500" text-anchor="middle">纯 Python · 零依赖</text>
+    <rect x="254" y="472" width="230" height="44" rx="22" fill="#e7f2ff" stroke="#9cc3f5"/>
+    <text x="369" y="500" text-anchor="middle">默认静态只读审计</text>
+    <rect x="498" y="472" width="392" height="44" rx="22" fill="#e7f2ff" stroke="#9cc3f5"/>
+    <text x="694" y="500" text-anchor="middle">证据分级：runtime &gt; test &gt; code &gt; config &gt; docs &gt; inference</text>
+    <rect x="904" y="472" width="256" height="44" rx="22" fill="#e7f2ff" stroke="#9cc3f5"/>
+    <text x="1032" y="500" text-anchor="middle">多项目比较 → comparison-report</text>
+  </g>
+</svg>
